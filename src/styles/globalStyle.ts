@@ -1,6 +1,9 @@
 import { createGlobalStyle, css } from "styled-components";
+import { variables } from "./variables";
 
 const GlobalStyle = createGlobalStyle`
+
+${variables}
 
 ${css`
 	* {

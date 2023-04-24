@@ -6,9 +6,10 @@ export const variables = css`
 		--font-sans: ${Sohne.style.fontFamily}, "Inter", "San Francisco",
 			"SF Pro Text", -apple-system, system-ui, sans-serif;
 
-		--primary-orange: #ff5403;
-		--gray: #56616b;
+		--primary: #ff5403;
+		--grey: #56616b;
 		--black: #131316;
 		--dark-grey: #31373d;
+		--light-grey: #eff1f6;
 	}
 `;
