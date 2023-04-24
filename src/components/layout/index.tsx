@@ -1,4 +1,4 @@
-import { Container } from "./layout.style";
+import { Container, Main, Header } from "./layout.style";
 import Head from "next/head";
 import { SideNav } from "@/components";
 
@@ -14,7 +14,12 @@ export const Layout: React.FC<layoutProps> = ({ children }) => {
 			</Head>
 			<Container>
 				<SideNav />
-				<div>{children}</div>
+				<Main>
+					<Header>
+						<h2>Dashboard</h2>
+					</Header>
+					{children}
+				</Main>
 			</Container>
 		</>
 	);
