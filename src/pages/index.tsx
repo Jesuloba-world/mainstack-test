@@ -1,9 +1,9 @@
-import { Layout } from "@/components";
+import { Layout, DashBoard } from "@/components";
 
 export default function Home() {
 	return (
 		<Layout>
-			<h1>The main part</h1>
+			<DashBoard />
 		</Layout>
 	);
 }
