@@ -8,6 +8,7 @@ import Group from "./group.svg";
 import HourGlass from "./hourglass.svg";
 import Subscription from "./subscriptions.svg";
 import Ellipses from "./ellipses.svg";
+import Info from "./info.svg";
 
 export {
 	AddPhoto,
@@ -20,4 +21,5 @@ export {
 	HourGlass,
 	Subscription,
 	Ellipses,
+	Info,
 };
