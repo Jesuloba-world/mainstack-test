@@ -5,6 +5,7 @@ export const Container = styled.div`
 	border-radius: 12px;
 	padding: 32px 24px 22px 24px;
 	width: 100%;
+	grid-column: 1 / -1;
 `;
 
 export const Top = styled.div`

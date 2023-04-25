@@ -13,14 +13,6 @@ interface lineChartProps {
 	}[];
 }
 
-const customTheme = {
-	grid: {
-		line: {
-			strokeDasharray: "5 5",
-		},
-	},
-};
-
 export const LineChart: React.FC<lineChartProps> = ({ data }) => {
 	return (
 		<Container>
@@ -30,7 +22,7 @@ export const LineChart: React.FC<lineChartProps> = ({ data }) => {
 				xScale={{ type: "point" }}
 				yScale={{
 					type: "linear",
-					min: "auto",
+					min: 0,
 					max: "auto",
 				}}
 				yFormat=" >-.2f"
@@ -38,6 +30,7 @@ export const LineChart: React.FC<lineChartProps> = ({ data }) => {
 					tickSize: 0,
 					tickPadding: 15,
 					tickRotation: 0,
+					legend: null,
 				}}
 				axisLeft={{
 					tickSize: 0,
@@ -47,15 +40,23 @@ export const LineChart: React.FC<lineChartProps> = ({ data }) => {
 				enableGridX={false}
 				enablePoints={false}
 				enableArea={true}
+				useMesh={true}
 				colors={{ datum: "color" }}
 				defs={[
 					linearGradientDef("gradientA", [
 						{ offset: 0, color: "inherit" },
+						{ offset: 70, color: "inherit", opacity: 0.5 },
 						{ offset: 100, color: "inherit", opacity: 0 },
 					]),
 				]}
 				fill={[{ match: "*", id: "gradientA" }]}
-				theme={customTheme}
+				theme={{
+					grid: {
+						line: {
+							strokeDasharray: "5 5",
+						},
+					},
+				}}
 			/>
 		</Container>
 	);

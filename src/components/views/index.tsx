@@ -5,18 +5,16 @@ import { LineChart } from "@/components";
 import { useTheme } from "styled-components";
 
 interface viewProps {
-	graphData: { views: { [key: string]: number } } | undefined;
+	graphData: { views: { [key: string]: number } };
 }
 
 export const Views: React.FC<viewProps> = ({ graphData }) => {
-	const data = graphData?.views
-		? Object.keys(graphData?.views || {}).map((key) => {
-				return {
-					x: format(new Date(key), "dd MMM"),
-					y: graphData.views[key],
-				};
-		  })
-		: [];
+	const data = Object.keys(graphData?.views || {}).map((key) => {
+		return {
+			x: format(new Date(key), "dd MMM"),
+			y: graphData.views[key],
+		};
+	});
 
 	const total = data.map((key) => key.y).reduce((a, b) => a + b, 0);
 

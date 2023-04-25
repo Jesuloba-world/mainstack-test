@@ -5,14 +5,15 @@ import {
 	Welcome,
 	TimeFrames,
 	TimeFrame,
+	DataContainer,
 } from "./dashboard.style";
-import { timeFrames } from "./constants";
-import { Views } from "@/components";
+import { timeFrames, countries, sources } from "./constants";
+import { Views, SourceCard } from "@/components";
 import { useQuery } from "@tanstack/react-query";
 import { getData } from "@/query";
 
 export const DashBoard = () => {
-	const { data, isSuccess, isLoading } = useQuery({
+	const { data, isLoading, isSuccess } = useQuery({
 		queryKey: ["data"],
 		queryFn: getData,
 	});
@@ -32,7 +33,36 @@ export const DashBoard = () => {
 					);
 				})}
 			</TimeFrames>
-			<Views graphData={data?.data.graph_data} />
+			{isLoading ? (
+				<h1>Loading...</h1>
+			) : isSuccess ? (
+				<DataContainer>
+					<Views graphData={data?.data.graph_data} />
+					<SourceCard
+						id="Top Locations"
+						data={data.data.top_locations.map((el) => ({
+							count: el.count,
+							percent: el.percent,
+							source: el.country,
+							image: countries[el.country].image,
+							color: countries[el.country].color,
+						}))}
+					/>
+					<SourceCard
+						id="Top Referral source"
+						data={data.data.top_sources.map((el) => ({
+							count: el.count,
+							percent: el.percent,
+							source: el.source,
+							image: sources[el.source].image,
+							color: sources[el.source].color,
+							name: sources[el.source].name,
+						}))}
+					/>
+				</DataContainer>
+			) : (
+				<h1>An error occurred</h1>
+			)}
 		</Container>
 	);
 };

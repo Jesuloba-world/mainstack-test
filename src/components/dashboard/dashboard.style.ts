@@ -52,3 +52,15 @@ export const TimeFrame = styled.div<{ active?: boolean }>`
 		line-height: 16px;
 	}
 `;
+
+export const DataContainer = styled.div`
+	display: grid;
+
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: auto auto;
+
+	row-gap: 24px;
+	column-gap: 16px;
+`;
+
+export const Sources = styled.div``;

@@ -12,6 +12,9 @@ const nextConfig = {
 	compiler: {
 		styledComponents: true,
 	},
+	images: {
+		domains: ["flagsapi.com"],
+	},
 };
 
 module.exports = nextConfig;
