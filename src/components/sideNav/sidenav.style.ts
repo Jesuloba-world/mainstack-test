@@ -73,6 +73,9 @@ export const NavItem = styled.div<{ active: boolean }>`
 			  `
 			: css`
 					color: var(--grey);
+					svg {
+						color: var(--dark-grey);
+					}
 			  `};
 
 	p {

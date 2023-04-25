@@ -50,7 +50,7 @@ export const SourceCard: React.FC<SourceCardProps> = ({ data, id }) => {
 				<Donut
 					data={data.map((el) => ({
 						color: el.color,
-						id: el.source,
+						id: el.name ? el.name : el.source,
 						label: el.source,
 						value: el.count,
 					}))}
